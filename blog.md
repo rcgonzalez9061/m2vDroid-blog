@@ -172,109 +172,12 @@ As for the parameters of the attack, we used a lambda of 10000, a confidence of 
 ### HinDroid vs m2vDroid 
 With the final results, we can see that our while we still achieved some respectable numbers, m2vDroid struggled to keep up with the HinDroid kernels' performances and it had a pronounced issue with false positives. This may simply be the case that m2vDroid is not as effetive as HinDroid or that we may need to further tune the parameters of it. However, considering that some other kernels faced the same issue, albiet with a smaller magnitute, this may the result of the heavy bias in our dataset. This could also be due to the inclusion of random apps. Recall that a small percentage of these apps may actually be malware but we may have mislabeled them as benign by assuming all random apps were benign to begin with. It may be worth the effort to perform the test again by either excluding random apps or filtering possible malware using another method.
 
-
-
-<style  type="text/css" >
-</style><table id="T_f46dc_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >ACC</th>        <th class="col_heading level0 col1" >TPR</th>        <th class="col_heading level0 col2" >F1</th>        <th class="col_heading level0 col3" >TP</th>        <th class="col_heading level0 col4" >TN</th>        <th class="col_heading level0 col5" >FP</th>        <th class="col_heading level0 col6" >FN</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_f46dc_level0_row0" class="row_heading level0 row0" >m2vDroid</th>
-                        <td id="T_f46dc_row0_col0" class="data row0 col0" >0.950</td>
-                        <td id="T_f46dc_row0_col1" class="data row0 col1" >1.000</td>
-                        <td id="T_f46dc_row0_col2" class="data row0 col2" >0.973</td>
-                        <td id="T_f46dc_row0_col3" class="data row0 col3" >3676</td>
-                        <td id="T_f46dc_row0_col4" class="data row0 col4" >169</td>
-                        <td id="T_f46dc_row0_col5" class="data row0 col5" >202</td>
-                        <td id="T_f46dc_row0_col6" class="data row0 col6" >1</td>
-            </tr>
-            <tr>
-                        <th id="T_f46dc_level0_row1" class="row_heading level0 row1" >AAT</th>
-                        <td id="T_f46dc_row1_col0" class="data row1 col0" >0.986</td>
-                        <td id="T_f46dc_row1_col1" class="data row1 col1" >0.999</td>
-                        <td id="T_f46dc_row1_col2" class="data row1 col2" >0.992</td>
-                        <td id="T_f46dc_row1_col3" class="data row1 col3" >3674</td>
-                        <td id="T_f46dc_row1_col4" class="data row1 col4" >316</td>
-                        <td id="T_f46dc_row1_col5" class="data row1 col5" >55</td>
-                        <td id="T_f46dc_row1_col6" class="data row1 col6" >3</td>
-            </tr>
-            <tr>
-                        <th id="T_f46dc_level0_row2" class="row_heading level0 row2" >ABAT</th>
-                        <td id="T_f46dc_row2_col0" class="data row2 col0" >0.976</td>
-                        <td id="T_f46dc_row2_col1" class="data row2 col1" >0.990</td>
-                        <td id="T_f46dc_row2_col2" class="data row2 col2" >0.987</td>
-                        <td id="T_f46dc_row2_col3" class="data row2 col3" >3642</td>
-                        <td id="T_f46dc_row2_col4" class="data row2 col4" >310</td>
-                        <td id="T_f46dc_row2_col5" class="data row2 col5" >61</td>
-                        <td id="T_f46dc_row2_col6" class="data row2 col6" >35</td>
-            </tr>
-            <tr>
-                        <th id="T_f46dc_level0_row3" class="row_heading level0 row3" >APAT</th>
-                        <td id="T_f46dc_row3_col0" class="data row3 col0" >0.979</td>
-                        <td id="T_f46dc_row3_col1" class="data row3 col1" >0.998</td>
-                        <td id="T_f46dc_row3_col2" class="data row3 col2" >0.989</td>
-                        <td id="T_f46dc_row3_col3" class="data row3 col3" >3670</td>
-                        <td id="T_f46dc_row3_col4" class="data row3 col4" >294</td>
-                        <td id="T_f46dc_row3_col5" class="data row3 col5" >77</td>
-                        <td id="T_f46dc_row3_col6" class="data row3 col6" >7</td>
-            </tr>
-            <tr>
-                        <th id="T_f46dc_level0_row4" class="row_heading level0 row4" >ABPBTAT</th>
-                        <td id="T_f46dc_row4_col0" class="data row4 col0" >0.986</td>
-                        <td id="T_f46dc_row4_col1" class="data row4 col1" >0.999</td>
-                        <td id="T_f46dc_row4_col2" class="data row4 col2" >0.992</td>
-                        <td id="T_f46dc_row4_col3" class="data row4 col3" >3672</td>
-                        <td id="T_f46dc_row4_col4" class="data row4 col4" >320</td>
-                        <td id="T_f46dc_row4_col5" class="data row4 col5" >51</td>
-                        <td id="T_f46dc_row4_col6" class="data row4 col6" >5</td>
-            </tr>
-            <tr>
-                        <th id="T_f46dc_level0_row5" class="row_heading level0 row5" >APBPTAT</th>
-                        <td id="T_f46dc_row5_col0" class="data row5 col0" >0.976</td>
-                        <td id="T_f46dc_row5_col1" class="data row5 col1" >0.992</td>
-                        <td id="T_f46dc_row5_col2" class="data row5 col2" >0.987</td>
-                        <td id="T_f46dc_row5_col3" class="data row5 col3" >3647</td>
-                        <td id="T_f46dc_row5_col4" class="data row5 col4" >303</td>
-                        <td id="T_f46dc_row5_col5" class="data row5 col5" >68</td>
-                        <td id="T_f46dc_row5_col6" class="data row5 col6" >30</td>
-            </tr>
-    </tbody></table>
-
+{% include baseline_performance_chart.html %}
 
 ### Adversarial Attack
 After testing the adversarial examples we generated, we were returned the following results. Being that we trained against the $AA^T$ kernel for the test, it is not surprising we see that that the attack was most successful against this kernel, achieving a evasion rate of 97.2%. Malware examples were also able to evade the $APA^T$ and $APBP^TA^T$ kernels with a success rate >99%. Malware example were fairly inneffective when it came to the $APA^T$ and $ABPBTAT$ kernels. It may be that these kernels are more broad with their definition of malware, making it harder for malware examples to evade them. The inverse might be said for the $APBP^TA^T$ where benign examples struggled to evade the classifier. Overall, we believe these results are incredibly promising for our method and would like to expand them to other kernels as well as our model in the future.
 
-
-
-<style  type="text/css" >
-</style><table id="T_d78bd_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >AAT</th>        <th class="col_heading level0 col1" >ABAT</th>        <th class="col_heading level0 col2" >APAT</th>        <th class="col_heading level0 col3" >ABPBTAT</th>        <th class="col_heading level0 col4" >APBPTAT</th>        <th class="col_heading level0 col5" >Support</th>    </tr>    <tr>        <th class="index_name level0" >Original AAT Label</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_d78bd_level0_row0" class="row_heading level0 row0" >Benign</th>
-                        <td id="T_d78bd_row0_col0" class="data row0 col0" >80.0%</td>
-                        <td id="T_d78bd_row0_col1" class="data row0 col1" >96.4%</td>
-                        <td id="T_d78bd_row0_col2" class="data row0 col2" >58.2%</td>
-                        <td id="T_d78bd_row0_col3" class="data row0 col3" >96.4%</td>
-                        <td id="T_d78bd_row0_col4" class="data row0 col4" >5.5%</td>
-                        <td id="T_d78bd_row0_col5" class="data row0 col5" >55</td>
-            </tr>
-            <tr>
-                        <th id="T_d78bd_level0_row1" class="row_heading level0 row1" >Malware</th>
-                        <td id="T_d78bd_row1_col0" class="data row1 col0" >99.3%</td>
-                        <td id="T_d78bd_row1_col1" class="data row1 col1" >1.1%</td>
-                        <td id="T_d78bd_row1_col2" class="data row1 col2" >99.1%</td>
-                        <td id="T_d78bd_row1_col3" class="data row1 col3" >0.2%</td>
-                        <td id="T_d78bd_row1_col4" class="data row1 col4" >99.3%</td>
-                        <td id="T_d78bd_row1_col5" class="data row1 col5" >445</td>
-            </tr>
-            <tr>
-                        <th id="T_d78bd_level0_row2" class="row_heading level0 row2" >Total</th>
-                        <td id="T_d78bd_row2_col0" class="data row2 col0" >97.2%</td>
-                        <td id="T_d78bd_row2_col1" class="data row2 col1" >11.6%</td>
-                        <td id="T_d78bd_row2_col2" class="data row2 col2" >94.6%</td>
-                        <td id="T_d78bd_row2_col3" class="data row2 col3" >10.8%</td>
-                        <td id="T_d78bd_row2_col4" class="data row2 col4" >89.0%</td>
-                        <td id="T_d78bd_row2_col5" class="data row2 col5" >500</td>
-            </tr>
-    </tbody></table>
-
+{% include attack_success.html %}
 
 ## ACKNOWLEDGEMENTS
 - Carlini, Nicholas, and David Wagner. “Towards Evaluating the Robustness of Neural Networks.”, doi:10.1109/sp.2017.49. 
