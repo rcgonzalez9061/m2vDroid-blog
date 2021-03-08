@@ -172,15 +172,6 @@ As for the parameters of the attack, we used a lambda of 10000, a confidence of 
 ### HinDroid vs m2vDroid 
 With the final results, we can see that our while we still achieved some respectable numbers, m2vDroid struggled to keep up with the HinDroid kernels' performances and it had a pronounced issue with false positives. This may simply be the case that m2vDroid is not as effetive as HinDroid or that we may need to further tune the parameters of it. However, considering that some other kernels faced the same issue, albiet with a smaller magnitute, this may the result of the heavy bias in our dataset. This could also be due to the inclusion of random apps. Recall that a small percentage of these apps may actually be malware but we may have mislabeled them as benign by assuming all random apps were benign to begin with. It may be worth the effort to perform the test again by either excluding random apps or filtering possible malware using another method.
 
-```python
-import pandas as pd
-pd.read_csv('_includes/baseline_performance_chart.csv', index_col=0).style.format({
-    'F1': '{0:.3f}',
-    'ACC': '{0:.3f}',
-    'TPR': '{0:.3f}',
-})
-```
-
 
 
 <style  type="text/css" >
@@ -250,16 +241,6 @@ pd.read_csv('_includes/baseline_performance_chart.csv', index_col=0).style.forma
 
 ### Adversarial Attack
 After testing the adversarial examples we generated, we were returned the following results. Being that we trained against the $AA^T$ kernel for the test, it is not surprising we see that that the attack was most successful against this kernel, achieving a evasion rate of 97.2%. Malware examples were also able to evade the $APA^T$ and $APBP^TA^T$ kernels with a success rate >99%. Malware example were fairly inneffective when it came to the $APA^T$ and $ABPBTAT$ kernels. It may be that these kernels are more broad with their definition of malware, making it harder for malware examples to evade them. The inverse might be said for the $APBP^TA^T$ where benign examples struggled to evade the classifier. Overall, we believe these results are incredibly promising for our method and would like to expand them to other kernels as well as our model in the future.
-
-```python
-pd.read_csv('_includes/attack_success.csv', index_col=0).style.format({
-    'AAT': '{0:.1%}',
-    'ABAT': '{0:.1%}',
-    'APAT': '{0:.1%}',
-    'ABPBTAT': '{0:.1%}',
-    'APBPTAT': '{0:.1%}'
-})
-```
 
 
 
