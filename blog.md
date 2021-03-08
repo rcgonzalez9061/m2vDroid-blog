@@ -172,12 +172,23 @@ As for the parameters of the attack, we used a lambda of 10000, a confidence of 
 ### HinDroid vs m2vDroid 
 With the final results, we can see that our while we still achieved some respectable numbers, m2vDroid struggled to keep up with the HinDroid kernels' performances and it had a pronounced issue with false positives. This may simply be the case that m2vDroid is not as effetive as HinDroid or that we may need to further tune the parameters of it. However, considering that some other kernels faced the same issue, albiet with a smaller magnitute, this may the result of the heavy bias in our dataset. This could also be due to the inclusion of random apps. Recall that a small percentage of these apps may actually be malware but we may have mislabeled them as benign by assuming all random apps were benign to begin with. It may be worth the effort to perform the test again by either excluding random apps or filtering possible malware using another method.
 
-{% include baseline_performance_chart.html %}
+|       |ACC               |TPR                 |F1                |TP                   |TN                 |FP |FN |
+|-------|------------------|--------------------|------------------|---------------------|-------------------|---|---|
+|**m2vDroid**| 0.950            | 1.000              | 0.973            | 3676                | 169               | 202| 1 |
+|**AAT**| 0.986            | 0.999              | 0.992            | 3674                | 316               | 55| 3 |
+|**ABAT**| 0.976            | 0.990              | 0.987            | 3642                | 310               | 61| 35|
+|**APAT**| 0.979            | 0.998              | 0.989            | 3670                | 294               | 77| 7 |
+|**ABPBTAT**| 0.986            | 0.999              | 0.992            | 3672                | 320               | 51| 5 |
+|**APBPTAT**| 0.976            | 0.992              | 0.987            | 3647                | 303               | 68| 30|
 
 ### Adversarial Attack
 After testing the adversarial examples we generated, we were returned the following results. Being that we trained against the $AA^T$ kernel for the test, it is not surprising we see that that the attack was most successful against this kernel, achieving a evasion rate of 97.2%. Malware examples were also able to evade the $APA^T$ and $APBP^TA^T$ kernels with a success rate >99%. Malware example were fairly inneffective when it came to the $APA^T$ and $ABPBTAT$ kernels. It may be that these kernels are more broad with their definition of malware, making it harder for malware examples to evade them. The inverse might be said for the $APBP^TA^T$ where benign examples struggled to evade the classifier. Overall, we believe these results are incredibly promising for our method and would like to expand them to other kernels as well as our model in the future.
 
-{% include attack_success.html %}
+|**Original AAT Label**|AAT               |ABAT                |APAT              |ABPBTAT              |APBPTAT            |Support|
+|----------------------|------------------|--------------------|------------------|---------------------|-------------------|-------|
+|**Benign**            | 80.0%            | 96.4%              | 58.2%            | 96.4%               | 5.5%              | 55    |
+|**Malware**           | 99.3%            | 1.1%               | 99.1%            | 0.2%                | 99.3%             | 445   |
+|**Total**             | 97.2%            | 11.6%              | 94.6%            | 10.8%               | 89.0%             | 500   |
 
 ## ACKNOWLEDGEMENTS
 - Carlini, Nicholas, and David Wagner. “Towards Evaluating the Robustness of Neural Networks.”, doi:10.1109/sp.2017.49. 
