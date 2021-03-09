@@ -79,7 +79,7 @@ Using this process, we were able to generate the following plot of every app in 
 {% include 3D-plot.html %}
 
 ### Exploring the Plot
-Looking at this plot, we seem to have multiple clusters of apps. We wanted to theorize why these clusters might be occurring  so we compiled descriptions of a few types of malware and some possible explanations for why we see what we see. 
+Looking at this plot, we seem to have multiple clusters of apps. We wanted to theorize why these clusters might be occurring  so we compiled descriptions of a few types of malware and some possible explanations for why we see what we see. The plot is **interactive**, so you may also explore for yourself! 
 
 - **BankBot:** a mobile banking trojan that steals banking credentials and payment information, by presenting an overlay window which looks identical to a bank app’s login page, 
 - **RuMMs:** a distributed through SMS phishing, and in some cases initiate transactions by contacting financial institutions.
@@ -151,6 +151,6 @@ Being that we trained against the $AA^T$ kernel for the test, it is not surprisi
 And to our mentors, Professor Aaron Fraenkel and Shivam Lakhotia, who provided guidance and insight throughout our project.
 
 
-## APENDIX
+## APPENDIX
 - [Source code](https://github.com/rcgonzalez9061/m2v-adversarial-hindroid)
 - [View our full report](https://rcgonzalez9061.github.io/m2vDroid-blog/report.pdf)
